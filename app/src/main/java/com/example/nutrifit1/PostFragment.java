@@ -1,9 +1,12 @@
 package com.example.nutrifit1;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -11,13 +14,18 @@ import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class PostFragment extends Fragment {
     private TextView dailyCalorieValue;
@@ -42,8 +50,7 @@ public class PostFragment extends Fragment {
     private String gender = "";
     private int activity = 0;
 
-    public PostFragment() {
-    }
+    public PostFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +71,7 @@ public class PostFragment extends Fragment {
         loadUserData();
         calculateDailyCalorie();
         loadConsumedCalorieData();
+        loadMealLogs(view);  // 👉 여기에 추가
 
         return view;
     }
@@ -130,6 +138,53 @@ public class PostFragment extends Fragment {
             updateFatInfo();
         } catch (Exception e) {
             consumedCalorieValue.setText("-");
+            e.printStackTrace();
+        }
+    }
+
+    private void loadMealLogs(View view) {
+        try {
+            Context context = getContext();
+            if (context == null) return;
+
+            File dir = context.getFilesDir();
+            String today = new SimpleDateFormat("yyyyMMdd", Locale.KOREA).format(new Date());
+            File[] files = dir.listFiles((dir1, name) ->
+                    name.startsWith("food_data_" + today) && name.endsWith(".json"));
+
+            LinearLayout mealLogLayout = view.findViewById(R.id.mealLogLayout);
+            LayoutInflater inflater = LayoutInflater.from(context);
+
+            if (files != null) {
+                for (File file : files) {
+                    InputStreamReader reader = new InputStreamReader(new FileInputStream(file));
+                    JsonArray foodArray = JsonParser.parseReader(reader).getAsJsonArray();
+
+                    List<String> foodNames = new ArrayList<>();
+                    double totalFileCalories = 0;
+
+                    for (JsonElement element : foodArray) {
+                        JsonObject foodObj = element.getAsJsonObject();
+                        String foodName = foodObj.get("foodName").getAsString();
+                        if ("음식아님".equals(foodName)) continue;
+                        double eatAmount = foodObj.get("eatAmount").getAsDouble();
+                        double calories = foodObj.getAsJsonObject("nutrition").get("calories").getAsDouble();
+                        foodNames.add(foodName);
+                        totalFileCalories += calories * eatAmount;
+                    }
+
+                    View item = inflater.inflate(R.layout.item_food_calorie, mealLogLayout, false);
+                    TextView nameView = item.findViewById(R.id.foodName);
+                    TextView calorieView = item.findViewById(R.id.foodCalorie);
+
+                    nameView.setText(TextUtils.join(", ", foodNames));
+                    calorieView.setText(Math.round(totalFileCalories) + " kcal");
+
+                    mealLogLayout.addView(item);
+                }
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

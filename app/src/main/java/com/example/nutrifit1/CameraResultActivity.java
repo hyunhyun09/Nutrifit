@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class CameraResultActivity extends AppCompatActivity {
     private String foodFileName;
 
     private ImageView mealImageView;
+    private TextView titleText;
     private TextView foodNamesText;
     private TextView totalCalorieLabel;
     private TextView totalCalorieValue;
@@ -37,6 +39,7 @@ public class CameraResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera_result);
 
         mealImageView = findViewById(R.id.mealImage);
+        titleText = findViewById(R.id.titleText); // 새로 추가된 TextView (XML에 있어야 함)
         foodNamesText = findViewById(R.id.foodNamesText);
         totalCalorieLabel = findViewById(R.id.totalCalorieLabel);
         totalCalorieValue = findViewById(R.id.totalCalorieValue);
@@ -60,6 +63,13 @@ public class CameraResultActivity extends AppCompatActivity {
         }
 
         saveButton.setOnClickListener(v -> {
+            if (saveButton.getText().toString().equals("다시 시도")) {
+                Intent intent = new Intent(CameraResultActivity.this, CameraActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+
             List<File> todayFiles = getTodayFoodDataFiles();
             if (todayFiles.isEmpty()) {
                 Toast.makeText(this, "오늘 날짜의 food_data 파일이 없습니다.", Toast.LENGTH_SHORT).show();
@@ -87,6 +97,18 @@ public class CameraResultActivity extends AppCompatActivity {
                     foodItems.add(new FoodItem(name, kcal));
                     totalCalories += kcal;
                 }
+            }
+
+            if (totalCalories == 0) {
+                titleText.setText("인공지능 카메라가\n음식을 인식하지 못했어요.");
+                saveButton.setText("다시 시도");
+
+                foodNamesText.setVisibility(View.GONE);
+                totalCalorieLabel.setVisibility(View.GONE);
+                totalCalorieValue.setVisibility(View.GONE);
+                foodItemsList.setVisibility(View.GONE);
+
+                return;
             }
 
             foodNamesText.setText(String.join(", ", foodNameList));

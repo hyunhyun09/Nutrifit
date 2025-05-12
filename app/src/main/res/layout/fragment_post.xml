@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        android:paddingBottom="56dp"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:paddingBottom="56dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,37 +22,37 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
+                android:layout_marginTop="16dp"
                 android:progress="67"
                 android:progressDrawable="@drawable/circular_progress_calorie"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/dateTextView"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateTextView" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
-                app:layout_constraintTop_toTopOf="@id/calorieProgressBar"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@id/calorieProgressBar"
+                app:layout_constraintEnd_toEndOf="@id/calorieProgressBar"
                 app:layout_constraintStart_toStartOf="@id/calorieProgressBar"
-                app:layout_constraintEnd_toEndOf="@id/calorieProgressBar">
+                app:layout_constraintTop_toTopOf="@id/calorieProgressBar">
 
                 <TextView
                     android:id="@+id/remainingCalorieLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="잔여"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/calorieTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="*"
-                    android:textSize="28sp"
                     android:textColor="@android:color/black"
+                    android:textSize="28sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -60,8 +60,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="kcal"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -114,84 +114,84 @@
                 android:id="@+id/nutritionInfoLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/calorieProgressBar"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ProgressBar
-                    android:id="@+id/carbsProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:progress="62"
-                    android:progressDrawable="@drawable/circular_progress_carbs" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="탄수화물"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="4dp" />
-
-                <TextView
-                    android:id="@+id/carbsTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="236/381g"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ProgressBar
-                    android:id="@+id/proteinProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:progress="100"
-                    android:progressDrawable="@drawable/circular_progress_protein" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="단백질"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="4dp" />
-
-                <TextView
-                    android:id="@+id/proteinTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="56/56g"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@id/calorieProgressBar">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/carbsProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:progress="62"
+                        android:progressDrawable="@drawable/circular_progress_carbs" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="탄수화물"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/carbsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="236/381g"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/proteinProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/circular_progress_protein" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="단백질"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/proteinTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56/56g"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ProgressBar
                         android:id="@+id/fatProgressBar"
@@ -204,19 +204,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="지방"
-                        android:textSize="12sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/fatTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="84/101g"
+                        android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black" />
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -224,34 +224,33 @@
                 android:id="@+id/divider"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="#EEEEEE"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/nutritionInfoLayout"
+                android:background="#EEEEEE"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/nutritionInfoLayout" />
 
             <TextView
                 android:id="@+id/mealLogTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="식사 기록"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/divider"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:text="식사 기록"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
 
             <LinearLayout
                 android:id="@+id/mealLogLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/mealLogTextView"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@id/mealLogTextView"></LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -27,7 +27,7 @@
                 android:id="@+id/titleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="인공지능 카메라가\n새로운 식단을 인식했어요."
+                android:text="인공지능 카메라가\n새로운 음식을 인식했어요."
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black" />

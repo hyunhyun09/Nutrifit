@@ -52,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new android.content.Intent(this, UserInformActivity.class));
         });
 
+        // 하단 네비게이션 버튼 처리
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment nextFragment = null;
 
             if (item.getItemId() == R.id.navigation_tracking) {
                 nextFragment = new PostFragment();
-            } /* else if (item.getItemId() == R.id.navigation_statistics) {
+            } else if (item.getItemId() == R.id.navigation_statistics) {
                 nextFragment = new StatisticsFragment();
-            } */ else if (item.getItemId() == R.id.navigation_recommend) {
+            } else if (item.getItemId() == R.id.navigation_recommend) {
                 nextFragment = new RecommendFragment();
             }
 
@@ -74,12 +75,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // 현재 → 다음 프래그먼트의 순서 비교 (작으면 오른쪽 슬라이드)
     private boolean isForwardNavigation(Fragment current, Fragment next) {
-        if (current instanceof PostFragment && next instanceof RecommendFragment) return true;
-        if (current instanceof RecommendFragment && next instanceof PostFragment) return false;
-        return true;
+        return getFragmentOrder(current) < getFragmentOrder(next);
     }
 
+    // 프래그먼트 순서 지정
+    private int getFragmentOrder(Fragment fragment) {
+        if (fragment instanceof PostFragment) return 0;
+        if (fragment instanceof StatisticsFragment) return 1;
+        if (fragment instanceof RecommendFragment) return 2;
+        return -1;
+    }
+
+    // 슬라이드 애니메이션 적용
     private void animateFragmentDirectionally(Fragment fragment, boolean toRight) {
         int enter, exit, popEnter, popExit;
 

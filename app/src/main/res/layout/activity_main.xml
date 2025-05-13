@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
-            android:text="아직 섭취한 음식이 없어요,\n\n우측 하단의 카메라 버튼으로\n먹은 음식을 등록해주세요."
+            android:text="아직 섭취한 음식이 없어요.\n\n카메라 버튼을 클릭한 후\n먹은 음식을 등록해 보세요."
             android:textColor="@android:color/black"
             android:textSize="21sp"
             android:textStyle="bold"
@@ -54,7 +54,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="669dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="72dp" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -83,6 +83,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="90dp"
+        android:contentDescription="카메라"
         android:src="@android:drawable/ic_menu_camera"
-        android:contentDescription="카메라" />
+        app:fabSize="normal" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,6 +1,7 @@
 package com.example.nutrifit1;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageButton;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, currentFragment)
                     .commit();
+            cameraButton.setVisibility(View.VISIBLE);
         }
 
         // 카메라 버튼
@@ -67,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
             if (nextFragment != null && !nextFragment.getClass().equals(currentFragment.getClass())) {
                 boolean toRight = isForwardNavigation(currentFragment, nextFragment);
                 animateFragmentDirectionally(nextFragment, toRight);
+
+                if (nextFragment instanceof PostFragment) {
+                    cameraButton.setVisibility(View.VISIBLE);
+                } else {
+                    cameraButton.setVisibility(View.GONE);
+                }
+
                 currentFragment = nextFragment;
                 return true;
             }

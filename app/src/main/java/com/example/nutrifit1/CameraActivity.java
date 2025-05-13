@@ -1,6 +1,7 @@
 package com.example.nutrifit1;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -8,8 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -59,6 +62,9 @@ public class CameraActivity extends AppCompatActivity {
         galleryButton = findViewById(R.id.galleryButton);
         sendButton = findViewById(R.id.sendButton);
         sendButton.setEnabled(false);
+        TextView placeholderText = findViewById(R.id.placeholderText);
+        placeholderText.setVisibility(View.VISIBLE);
+
 
         permissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
@@ -125,6 +131,8 @@ public class CameraActivity extends AppCompatActivity {
             imageUri = uri;
             imageView.setImageURI(uri);
             imageByteData = convertUriToByteArray(uri);
+            TextView placeholderText = findViewById(R.id.placeholderText);
+            placeholderText.setVisibility(View.GONE);
         }
 
         sendButton.setEnabled(imageByteData != null);

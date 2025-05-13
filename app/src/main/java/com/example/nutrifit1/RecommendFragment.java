@@ -43,7 +43,17 @@ public class RecommendFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_recommend, container, false);
 
         sendRecommendationRequest();
+        rootView.findViewById(R.id.voteButton1).setOnClickListener(v -> handleLikeButton(v));
+        rootView.findViewById(R.id.voteButton2).setOnClickListener(v -> handleLikeButton(v));
         return rootView;
+    }
+
+    private void handleLikeButton(View button) {
+        button.setAlpha(0.5f);  // 50% 투명도
+        if (button instanceof android.widget.Button) {
+            ((android.widget.Button) button).setText("좋아요 완료!");
+        }
+        button.setEnabled(false); // 중복 클릭 방지
     }
 
     private void sendRecommendationRequest() {

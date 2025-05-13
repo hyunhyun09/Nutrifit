@@ -2,42 +2,81 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="377dp"
-        android:layout_height="359dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/darker_gray"
-        android:scaleType="centerCrop" />
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
+        android:text="새로운 식단을 추가해 주세요."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="16dp"
+        android:gravity="start" />
 
+    <!-- 이미지뷰 + 안내 텍스트 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="359dp"
+        android:layout_marginBottom="24dp"
+        android:background="#E0E0E0">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/placeholderText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="아직 선택된 사진이 없어요."
+            android:gravity="center"
+            android:textColor="#888888"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <!-- 버튼 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="0dp"
+        android:gravity="center_horizontal">
+
+        <!-- 카메라 버튼 -->
         <Button
             android:id="@+id/cameraButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Camera"
-            android:layout_marginEnd="16dp" />
+            android:text="카메라로 촬영하기"
+            android:layout_marginBottom="12dp" />
 
+        <!-- 갤러리 버튼 -->
         <Button
             android:id="@+id/galleryButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gallery" />
+            android:text="갤러리에서 가져오기"
+            android:layout_marginBottom="12dp" />
     </LinearLayout>
 
+    <!-- 공간을 밀어내기 위한 여유 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 전송 버튼 -->
     <Button
         android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send" />
+        android:text="전송"
+        android:layout_marginBottom="16dp" />
 </LinearLayout>

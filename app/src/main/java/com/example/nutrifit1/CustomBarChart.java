@@ -49,20 +49,26 @@ public class CustomBarChart extends View {
 
         float width = getWidth();
         float height = getHeight();
-        float padding = 40f;
-        float chartWidth = width - 2 * padding;
-        float chartHeight = height - 2 * padding;
 
-        float barWidth = chartWidth / (data.size() * 1.5f);  // 살짝 넓게
+        float padding = 50f;
+        float labelHeight = 50f;
+        //float labelOffset = 1f;
+
+        float chartWidth = width - 2 * padding;
+        float chartHeight = height - 2 * padding - labelHeight;
+
+        float xStep = chartWidth / (data.size() - 1);  // LineChart와 동일
+
+        float barWidth = xStep * 0.4f;  // 좌우 여백 고려해서 조금 작게
 
         for (int i = 0; i < data.size(); i++) {
-            float left = padding + i * (barWidth * 1.5f);
-            float bottom = height - padding;
-            float right = left + barWidth;
+            float centerX = padding + i * xStep;
+            float left = centerX - barWidth / 2;
+            float right = centerX + barWidth / 2;
+            float bottom = height - padding - labelHeight;
 
             List<Float> values = data.get(i);
 
-            // 이 날의 탄/단/지 총합 (0이면 bar 그리지 않음)
             float total = 0f;
             for (Float v : values) total += v;
             if (total <= 0f) continue;
@@ -80,11 +86,9 @@ public class CustomBarChart extends View {
                 currentTop = top;
             }
 
-            // 라벨 중앙 정렬
-            float labelX = left + barWidth / 4;
-            canvas.drawText(labels.get(i), labelX, height - padding / 4, textPaint);
+            float labelY = height - padding - labelHeight / 2f + 25f;
+            canvas.drawText(labels.get(i), centerX - 14f, labelY, textPaint);
         }
     }
-
 }
 

@@ -39,7 +39,7 @@ public class StatisticsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_statistics, container, false);
+        View view = inflater.inflate(R.layout.fragment_statistics, container, false);
 
         calorieChart = view.findViewById(R.id.calorieChart);
         nutritionChart = view.findViewById(R.id.nutritionChart);

@@ -80,7 +80,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/totalCalorieLabel" />
 
-            <com.example.nutrifit1.CustomLineChart
+            <com.nutrifit_n.CustomLineChart
                 android:id="@+id/calorieChart"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
@@ -122,7 +122,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/nutritionBalanceLabel" />
 
-            <com.example.nutrifit1.CustomBarChart
+            <com.nutrifit_n.CustomBarChart
                 android:id="@+id/nutritionChart"
                 android:layout_width="0dp"
                 android:layout_height="200dp"

@@ -1,5 +1,4 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nutrifit1"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature
@@ -29,7 +28,7 @@
         <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token" />
 
         <activity
-            android:name=".ExeScreenActivity"
+            android:name="com.nutrifit_n.ExeScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,21 +37,21 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.nutrifit_n.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".CameraActivity"
+            android:name="com.nutrifit_n.CameraActivity"
             android:exported="true" />
         <activity
-            android:name=".CameraResultActivity"
+            android:name="com.nutrifit_n.CameraResultActivity"
             android:exported="false" />
         <activity
-            android:name=".UserInformActivity"
+            android:name="com.nutrifit_n.UserInformActivity"
             android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.nutrifit1.fileprovider"
+            android:authorities="com.nutrifit_n.nutrifit1.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

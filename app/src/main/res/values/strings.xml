@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Nutrifit</string>
+    <string name="foodlens_app_token">700c9ae2c7ad4efb83b1875416711743</string>
+    <string name="foodlens_company_token">c5c5b0ba7edd47639323f4bddb04af6d</string>
+    <string name="user_information">User Information</string>
+    <string name="food_lens">Food Lens</string>
+    <string-array name="activityLevels">
+        <item>매우 활동적</item>
+        <item>활동적</item>
+        <item>보통 활동적</item>
+        <item>적게 활동적</item>
+        <item>거의 활동하지 않음</item>
+    </string-array>
+</resources>

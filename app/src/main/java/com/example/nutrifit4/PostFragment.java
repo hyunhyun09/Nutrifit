@@ -90,9 +90,6 @@ public class PostFragment extends Fragment {
         // UI 업데이트
         consumedCalorieValue.setText((int) totalCalories + " kcal");
 
-        // ProgressBar 설정
-        calorieProgressBar.setMax(2000); // 기준 설정
-
         // 🔥 여기서 남은 칼로리 업데이트
         updateCalorieDifference();
 
@@ -302,15 +299,26 @@ public class PostFragment extends Fragment {
     }
 
     private void updateCalorieDifference() {
-        if (dailyCalorie > 0 && totalCalories >= 0) {
+        if (dailyCalorie > 0) {
+            // 칼로리 차이 계산 (목표 칼로리 - 섭취 칼로리)
             double remaining = dailyCalorie - totalCalories;
+
+            // 칼로리 차이가 0보다 적으면 0으로 설정
             if (remaining < 0) remaining = 0;
+
+            // 텍스트에 칼로리 차이 출력
             calorieTextView.setText(String.valueOf(Math.round(remaining)));
 
+            // 진행률 계산 (총 칼로리 / 목표 칼로리 비율)
             int progress = (int) Math.round((totalCalories / dailyCalorie) * 100);
+
+            // 진행률이 100을 넘지 않도록 제한
             if (progress > 100) progress = 100;
+
+            // 프로그래스 바에 진행률 설정
             calorieProgressBar.setProgress(progress);
         } else {
+            // 목표 칼로리가 0 이하인 경우 기본값 설정
             calorieTextView.setText("-");
             calorieProgressBar.setProgress(0);
         }

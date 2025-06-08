@@ -134,7 +134,7 @@
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:progress="62"
+                        android:progress="100"
                         android:progressDrawable="@drawable/circular_progress_carbs" />
 
                     <TextView

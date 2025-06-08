@@ -1,0 +1,71 @@
+{
+  "eatDate": "2025-06-04 00:00:00",
+  "eatType": 0,
+  "mealType": "breakfast",
+  "foodImagepath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/2025-06-04_breakfast.jpg",
+  "foodPositionList": [
+    {
+      "eatAmount": 1.0,
+      "foodCandidates": [
+        {
+          "foodId": 100,
+          "foodName": "토스트",
+          "keyName": "토스트",
+          "nutrition": {
+            "calcium": 100.0,
+            "calories": 250.0,
+            "carbonhydrate": 30.0,
+            "cholesterol": 10.0,
+            "dietrayfiber": 2.0,
+            "fat": 8.0,
+            "protein": 6.0,
+            "saturatedfat": 3.0,
+            "sodium": 300.0,
+            "sugar": 5.0,
+            "totalgram": 120.0,
+            "transfat": 0.1,
+            "unit": "1인분",
+            "foodtype": "general",
+            "vitamina": 50.0,
+            "vitaminb": 0.3,
+            "vitaminc": 0.0,
+            "vitamind": 0.5,
+            "vitamine": 1.2
+          }
+        }
+      ],
+      "userSelectedFood": {
+        "foodId": 100,
+        "foodName": "토스트",
+        "nutrition": {
+          "calcium": 100.0,
+          "calories": 250.0,
+          "carbonhydrate": 30.0,
+          "cholesterol": 10.0,
+          "dietrayfiber": 2.0,
+          "fat": 8.0,
+          "protein": 6.0,
+          "saturatedfat": 3.0,
+          "sodium": 300.0,
+          "sugar": 5.0,
+          "totalgram": 120.0,
+          "transfat": 0.1,
+          "unit": "1인분",
+          "foodtype": "general",
+          "vitamina": 50.0,
+          "vitaminb": 0.3,
+          "vitaminc": 0.0,
+          "vitamind": 0.5,
+          "vitamine": 1.2
+        }
+      },
+      "imagePosition": {
+        "xmax": 800,
+        "xmin": 100,
+        "ymax": 600,
+        "ymin": 100
+      }
+    }
+  ],
+  "predictedImagePath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/orgimg.jpg"
+}

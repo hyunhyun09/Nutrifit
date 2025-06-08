@@ -1,0 +1,303 @@
+{
+  "eatDate": "2019-08-14 16:11:27",
+  "eatType": 3,
+  "foodPositionList": [
+    {
+      "eatAmount": 1,
+      "foodCandidates": [
+        {
+          "foodId": 38,
+          "foodName": "쌀밥",
+          "keyName": "rice_streamed",
+          "nutrition": {
+            "calcium": 6.3,
+            "calories": 326.7,
+            "carbohydrate": 71.55,
+            "cholesterol": 0,
+            "dietaryfiber": 0.9,
+            "fat": 0.36,
+            "protein": 5.76,
+            "rawCalories": 326.7,
+            "rawTotalGram": 210,
+            "saturatedfat": 0.126,
+            "sodium": 7.2,
+            "sugar": 0,
+            "totalgram": 210,
+            "transfat": 0,
+            "unit": "1공기",
+            "foodtype": "",
+            "vitamina": 1,
+            "vitaminb": 0,
+            "vitaminc": 0,
+            "vitamind": 0,
+            "vitamine": 0
+          }
+        },
+        {
+          "foodId": 45,
+          "foodName": "찰밥",
+          "keyName": "rice_streamed"
+        },
+        {
+          "foodId": 22,
+          "foodName": "흰죽",
+          "keyName": "rice_porridge"
+        },
+        {
+          "foodId": 32,
+          "foodName": "현미밥(현미50%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 49,
+          "foodName": "현미밥(현미30%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 44,
+          "foodName": "차조밥",
+          "keyName": "chajo_bab"
+        },
+        {
+          "foodId": 12155,
+          "foodName": "음식아님",
+          "keyName": "nonefood"
+        }
+      ],
+      "foodImagepath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/0.jpg",
+      "imagePosition": {
+        "xmax": 1529,
+        "xmin": 12,
+        "ymax": 1223,
+        "ymin": 240
+      },
+      "userSelectedFood":
+      {
+        "foodId": 38,
+        "foodName": "쌀밥",
+        "nutrition": {
+          "calcium": 6.3,
+          "calories": 326.7,
+          "carbonhydrate": 71.55,
+          "cholesterol": 0,
+          "dietrayfiber": 0.9,
+          "fat": 0.36,
+          "protein": 5.76,
+          "rawCalories": 326.7,
+          "rawTotalGram": 210,
+          "saturatedfat": 0.126,
+          "sodium": 7.2,
+          "sugar": 0,
+          "totalgram": 210,
+          "transfat": 0,
+          "unit": "1공기",
+          "foodtype": "",
+          "vitamina": 1,
+          "vitaminb": 0,
+          "vitaminc": 0,
+          "vitamind": 0,
+          "vitamine": 0
+        }
+      }
+    },
+
+    {
+      "eatAmount": 1,
+      "foodCandidates": [
+        {
+        "foodId": 39,
+        "foodName": "된장찌개",
+        "nutrition": {
+          "calcium": 30,
+          "calories": 150,
+          "carbohydrate": 12.5,
+          "cholesterol": 0,
+          "dietaryfiber": 2.5,
+          "fat": 5.5,
+          "protein": 10.5,
+          "rawCalories": 150,
+          "rawTotalGram": 200,
+          "saturatedfat": 0.5,
+          "sodium": 800,
+          "sugar": 3,
+          "totalgram": 200,
+          "transfat": 0,
+          "unit": "1그릇",
+          "foodtype": "국",
+          "vitamina": 2,
+          "vitaminb": 0.5,
+          "vitaminc": 10,
+          "vitamind": 0,
+          "vitamine": 0.1
+        }
+      },
+        {
+          "foodId": 45,
+          "foodName": "찰밥",
+          "keyName": "rice_streamed"
+        },
+        {
+          "foodId": 22,
+          "foodName": "흰죽",
+          "keyName": "rice_porridge"
+        },
+        {
+          "foodId": 32,
+          "foodName": "현미밥(현미50%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 49,
+          "foodName": "현미밥(현미30%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 44,
+          "foodName": "차조밥",
+          "keyName": "chajo_bab"
+        },
+        {
+          "foodId": 12155,
+          "foodName": "음식아님",
+          "keyName": "nonefood"
+        }
+      ],
+      "foodImagepath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/0.jpg",
+      "imagePosition": {
+        "xmax": 1529,
+        "xmin": 12,
+        "ymax": 1223,
+        "ymin": 240
+      },
+      "userSelectedFood":
+      {
+        "foodId": 39,
+        "foodName": "된장찌개",
+        "nutrition": {
+          "calcium": 30,
+          "calories": 150,
+          "carbohydrate": 12.5,
+          "cholesterol": 0,
+          "dietaryfiber": 2.5,
+          "fat": 5.5,
+          "protein": 10.5,
+          "rawCalories": 150,
+          "rawTotalGram": 200,
+          "saturatedfat": 0.5,
+          "sodium": 800,
+          "sugar": 3,
+          "totalgram": 200,
+          "transfat": 0,
+          "unit": "1그릇",
+          "foodtype": "국",
+          "vitamina": 2,
+          "vitaminb": 0.5,
+          "vitaminc": 10,
+          "vitamind": 0,
+          "vitamine": 0.1
+        }
+      }
+    },
+    
+    {
+      "eatAmount": 1,
+      "foodCandidates": [
+        {
+        "foodId": 40,
+        "foodName": "사과",
+        "nutrition": {
+          "calcium": 6,
+          "calories": 52,
+          "carbohydrate": 13.8,
+          "cholesterol": 0,
+          "dietaryfiber": 2.4,
+          "fat": 0.2,
+          "protein": 0.3,
+          "rawCalories": 52,
+          "rawTotalGram": 100,
+          "saturatedfat": 0,
+          "sodium": 1,
+          "sugar": 10.4,
+          "totalgram": 100,
+          "transfat": 0,
+          "unit": "1개",
+          "foodtype": "과일",
+          "vitamina": 0,
+          "vitaminb": 0.1,
+          "vitaminc": 4.6,
+          "vitamind": 0,
+          "vitamine": 0
+        }
+      },
+        {
+          "foodId": 45,
+          "foodName": "찰밥",
+          "keyName": "rice_streamed"
+        },
+        {
+          "foodId": 22,
+          "foodName": "흰죽",
+          "keyName": "rice_porridge"
+        },
+        {
+          "foodId": 32,
+          "foodName": "현미밥(현미50%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 49,
+          "foodName": "현미밥(현미30%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 44,
+          "foodName": "차조밥",
+          "keyName": "chajo_bab"
+        },
+        {
+          "foodId": 12155,
+          "foodName": "음식아님",
+          "keyName": "nonefood"
+        }
+      ],
+      "foodImagepath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/0.jpg",
+      "imagePosition": {
+        "xmax": 1529,
+        "xmin": 12,
+        "ymax": 1223,
+        "ymin": 240
+      },
+      "userSelectedFood":
+      {
+        "foodId": 40,
+        "foodName": "사과",
+        "nutrition": {
+          "calcium": 6,
+          "calories": 52,
+          "carbohydrate": 13.8,
+          "cholesterol": 0,
+          "dietaryfiber": 2.4,
+          "fat": 0.2,
+          "protein": 0.3,
+          "rawCalories": 52,
+          "rawTotalGram": 100,
+          "saturatedfat": 0,
+          "sodium": 1,
+          "sugar": 10.4,
+          "totalgram": 100,
+          "transfat": 0,
+          "unit": "1개",
+          "foodtype": "과일",
+          "vitamina": 0,
+          "vitaminb": 0.1,
+          "vitaminc": 4.6,
+          "vitamind": 0,
+          "vitamine": 0
+        }
+      }
+    }
+  ],
+  
+  "mealType": "snack",
+  "predictedImagePath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/orgimg.jpg"
+}

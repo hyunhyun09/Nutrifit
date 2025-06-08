@@ -81,9 +81,10 @@ public class StatisticsFragment extends Fragment {
     // 일주일 동안 먹은 식단 파일 탐색이 안 되어서 코드 일부 수정했습니다.
     // 하루 누계 값이 나오도록 수정했습니다
     // 총 섭취 칼로리의 권장량이 dailyCalorie가 아닌 static string으로 나오던 오류 수정
+    // (06.08) json 없는 날짜도 표시되도록 함, 일별로 json 하나만 표시되던 오류 수정
     private void updateCharts() {
-        float weeklyCalories = 0f; // 주간 누적용 변수
-        float weeklyCarb = 0f, weeklyProtein = 0f, weeklyFat = 0f;
+        // 주간 누적용 변수
+        float weeklyCalories = 0f, weeklyCarb = 0f, weeklyProtein = 0f, weeklyFat = 0f;
 
         Calendar endDate = (Calendar) currentStartDate.clone();
         endDate.add(Calendar.DAY_OF_YEAR, 6);
@@ -107,6 +108,8 @@ public class StatisticsFragment extends Fragment {
         SimpleDateFormat fileDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
 
         for (int i = 0; i < 7; i++) {
+            float dayCalories = 0f, dayCarb = 0f, dayProtein = 0f, dayFat = 0f;
+
             String fileDate = fileDateFormat.format(date.getTime());
             File dir = requireContext().getFilesDir();
 
@@ -115,8 +118,7 @@ public class StatisticsFragment extends Fragment {
                     name.startsWith("food_data_" + fileDate));
 
             if (files != null && files.length > 0) {
-                float fileCalories = 0f;
-                float fileCarb = 0f, fileProtein = 0f, fileFat = 0f;
+                float fileCalories = 0f, fileCarb = 0f, fileProtein = 0f, fileFat = 0f;
 
                 for (File file : files) {
                     try (FileReader reader = new FileReader(file)) {
@@ -159,37 +161,46 @@ public class StatisticsFragment extends Fragment {
                         Log.e("StatisticsFragment", "파일 읽기 오류: " + file.getName(), e);
                     }
 
-                    // 누적 합산
-                    weeklyCalories += fileCalories;
-                    weeklyCarb += fileCarb;
-                    weeklyProtein += fileProtein;
-                    weeklyFat += fileFat;
-
                     // 로그 확인용
-                    Log.d("누적결과", String.format("[%s] kcal=%.1f, 탄=%.1f, 단=%.1f, 지=%.1f",
+                    Log.d("분석 결과", String.format("[%s] kcal=%.1f, 탄=%.1f, 단=%.1f, 지=%.1f",
                             file.getName(), fileCalories, fileCarb, fileProtein, fileFat));
-
-                    // 그래프 데이터 추가
-                    calorieData.add(fileCalories);
-                    nutritionData.add(Arrays.asList(fileCarb, fileProtein, fileFat));
-                    labels.add(shortDateFormat.format(date.getTime()));
-                    date.add(Calendar.DAY_OF_YEAR, 1);
                 }
+                // 일일 누적 합산
+                dayCalories += fileCalories;
+                dayCarb += fileCarb;
+                dayProtein += fileProtein;
+                dayFat += fileFat;
+
             } else {
                 Log.w("StatisticsFragment", "해당 날짜 파일 없음: " + fileDate);
             }
 
-            // day + 1
-            date.add(Calendar.DAY_OF_YEAR, 1);
-
-            // 그래프 갱신
-            calorieChart.setData(labels, calorieData);
-            calorieChart.invalidate();
-            nutritionChart.setData(labels, nutritionData);
-            nutritionChart.invalidate();
             // 로그 확인용
-            Log.d("일주일 누적결과", String.format("kcal=%.1f, 탄=%.1f, 단=%.1f, 지=%.1f",
-                    weeklyCalories, weeklyCarb, weeklyProtein, weeklyFat));
+            Log.d("일일 누적", String.format("[%s] kcal=%.1f, 탄=%.1f, 단=%.1f, 지=%.1f",
+                    fileDate, dayCalories, dayCarb, dayProtein, dayFat));
+
+            // 하루에 섭취한 총 영양소 표시
+            calorieData.add(dayCalories);
+            nutritionData.add(Arrays.asList(dayCarb, dayProtein, dayFat));
+            labels.add(shortDateFormat.format(date.getTime()));
+
+            // 주 누적
+            weeklyCalories += dayCalories;
+            weeklyCarb += dayCarb;
+            weeklyProtein += dayProtein;
+            weeklyFat += dayFat;
+
+            // 하루 지남
+            date.add(Calendar.DAY_OF_YEAR, 1);
         }
+        // 로그 확인용
+        Log.d("주 누적", String.format("[kcal=%.1f, 탄=%.1f, 단=%.1f, 지=%.1f",
+                weeklyCalories, weeklyCarb, weeklyProtein, weeklyFat));
+
+        // 그래프 갱신
+        calorieChart.setData(labels, calorieData);
+        calorieChart.invalidate();
+        nutritionChart.setData(labels, nutritionData);
+        nutritionChart.invalidate();
     }
 }
